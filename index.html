@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0065)file:///C:/Users/User/Downloads/rathausshop-wunstorf-kfz2_22.html -->
+<!-- saved from url=(0065)file:///C:/Users/User/Downloads/rathausshop-wunstorf-kfz2_23.html -->
 <html lang="de"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -439,12 +439,12 @@
     </div>
   </div>
   <nav>
-    <a href="file:///C:/Users/User/Downloads/rathausshop-wunstorf-kfz2_22.html#leistungen">Leistungen</a>
-    <a href="file:///C:/Users/User/Downloads/rathausshop-wunstorf-kfz2_22.html#ablauf">Ablauf</a>
-    <a href="file:///C:/Users/User/Downloads/rathausshop-wunstorf-kfz2_22.html#unterlagen">Unterlagen</a>
-    <a href="file:///C:/Users/User/Downloads/rathausshop-wunstorf-kfz2_22.html#faq">FAQ</a>
-    <a href="file:///C:/Users/User/Downloads/rathausshop-wunstorf-kfz2_22.html#hilfe" class="btn-nav">Wo finde ich was?</a>
-    <a href="file:///C:/Users/User/Downloads/rathausshop-wunstorf-kfz2_22.html#bestellen" class="btn-nav">Jetzt beauftragen →</a>
+    <a href="file:///C:/Users/User/Downloads/rathausshop-wunstorf-kfz2_23.html#leistungen">Leistungen</a>
+    <a href="file:///C:/Users/User/Downloads/rathausshop-wunstorf-kfz2_23.html#ablauf">Ablauf</a>
+    <a href="file:///C:/Users/User/Downloads/rathausshop-wunstorf-kfz2_23.html#unterlagen">Unterlagen</a>
+    <a href="file:///C:/Users/User/Downloads/rathausshop-wunstorf-kfz2_23.html#faq">FAQ</a>
+    <a href="file:///C:/Users/User/Downloads/rathausshop-wunstorf-kfz2_23.html#hilfe" class="btn-nav">Wo finde ich was?</a>
+    <a href="file:///C:/Users/User/Downloads/rathausshop-wunstorf-kfz2_23.html#bestellen" class="btn-nav">Jetzt beauftragen →</a>
   </nav>
 </header>
 
@@ -456,11 +456,11 @@
     <h1>KFZ-Zulassung —<br><em>einfach online erledigt</em></h1>
     <p class="hero-desc">Ihr Fahrzeug anmelden, umschreiben oder abmelden — bequem von zuhause, deutschlandweit und ohne Online-Ausweisfunktion. Wir erledigen das für Sie.</p>
     <div class="hero-ctas">
-      <a href="file:///C:/Users/User/Downloads/rathausshop-wunstorf-kfz2_22.html#bestellen" class="btn-primary">
+      <a href="file:///C:/Users/User/Downloads/rathausshop-wunstorf-kfz2_23.html#bestellen" class="btn-primary">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
         Jetzt beauftragen
       </a>
-      <a href="file:///C:/Users/User/Downloads/rathausshop-wunstorf-kfz2_22.html#ablauf" class="btn-secondary">
+      <a href="file:///C:/Users/User/Downloads/rathausshop-wunstorf-kfz2_23.html#ablauf" class="btn-secondary">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4l3 3"></path></svg>
         Wie läuft das ab?
       </a>
@@ -1054,7 +1054,7 @@ function vorgangAktualisieren(v) {
       <ul>
         <li><a href="tel:+4950319747016">📞 05031 / 9747016</a></li>
         <li><span>📍 Südstraße 5, 31515 Wunstorf</span></li>
-        <li><a href="file:///C:/Users/User/Downloads/rathausshop-wunstorf-kfz2_22.html#faq">FAQ &amp; Hilfe</a></li>
+        <li><a href="file:///C:/Users/User/Downloads/rathausshop-wunstorf-kfz2_23.html#faq">FAQ &amp; Hilfe</a></li>
       </ul>
     </div>
   </div>
@@ -1248,6 +1248,74 @@ async function formularAbsenden() {
     });
 
     if (response.ok) {
+      // Strukturierte Zulex-E-Mail senden
+      var vorgang    = document.querySelector('[name="vorgang"]') ? document.querySelector('[name="vorgang"]').value : '';
+      var vorname    = document.querySelector('[name="vorname"]') ? document.querySelector('[name="vorname"]').value : '';
+      var nachname   = document.querySelector('[name="nachname"]') ? document.querySelector('[name="nachname"]').value : '';
+      var geburtsort = document.querySelector('[name="geburtsort"]') ? document.querySelector('[name="geburtsort"]').value : '';
+      var gebdat     = document.querySelector('[name="geburtsdatum"]') ? document.querySelector('[name="geburtsdatum"]').value : '';
+      var email2     = document.querySelector('[name="email"]') ? document.querySelector('[name="email"]').value : '';
+      var telefon    = document.querySelector('[name="telefon"]') ? document.querySelector('[name="telefon"]').value : '';
+      var adresse    = document.querySelector('[name="adresse"]') ? document.querySelector('[name="adresse"]').value : '';
+      var fahrzeugtyp= document.querySelector('[name="fahrzeugtyp"]') ? document.querySelector('[name="fahrzeugtyp"]').value : '';
+      var fin        = document.querySelector('[name="fin"]') ? document.querySelector('[name="fin"]').value : '';
+      var kennzeichen= document.querySelector('[name="kennzeichen"]') ? document.querySelector('[name="kennzeichen"]').value : '';
+      var halterwechsel = document.querySelector('[name="halterwechsel"]') ? document.querySelector('[name="halterwechsel"]').value : '';
+      var zb1nr      = document.querySelector('[name="zb1-nummer"]') ? document.querySelector('[name="zb1-nummer"]').value : '';
+      var zb1code    = document.querySelector('[name="zb1-code"]') ? document.querySelector('[name="zb1-code"]').value : '';
+      var zb2nr      = document.querySelector('[name="zb2-nummer"]') ? document.querySelector('[name="zb2-nummer"]').value : '';
+      var zb2pin     = document.querySelector('[name="zb2-pin"]') ? document.querySelector('[name="zb2-pin"]').value : '';
+      var evb        = document.querySelector('[name="evb"]') ? document.querySelector('[name="evb"]').value : '';
+      var iban       = document.querySelector('[name="iban"]') ? document.querySelector('[name="iban"]').value : '';
+      var kontoinhaber = document.querySelector('[name="kontoinhaber"]') ? document.querySelector('[name="kontoinhaber"]').value : '';
+      var anmerkungen= document.querySelector('[name="anmerkungen"]') ? document.querySelector('[name="anmerkungen"]').value : '';
+      var jetzt      = new Date().toLocaleString('de-DE', {timeZone:'Europe/Berlin'});
+
+      var nachricht = '🚗 NEUER AUFTRAG – RATHAUSSHOP WUNSTORF\n';
+      nachricht += 'Eingegangen: ' + jetzt + '\n';
+      nachricht += '══════════════════════════════════\n\n';
+      nachricht += '📌 VORGANGSART: ' + vorgang + '\n\n';
+      nachricht += '👤 KUNDENDATEN:\n';
+      nachricht += '  Name:        ' + vorname + ' ' + nachname + '\n';
+      nachricht += '  Geburtsort:  ' + geburtsort + '\n';
+      nachricht += '  Geburtsdatum:' + gebdat + '\n';
+      nachricht += '  Adresse:     ' + adresse + '\n';
+      nachricht += '  E-Mail:      ' + email2 + '\n';
+      nachricht += '  Telefon:     ' + telefon + '\n\n';
+      nachricht += '🚘 ZULEX SCHRITT 1 – FAHRZEUG:\n';
+      nachricht += '  Fahrzeugtyp:  ' + (fahrzeugtyp || '—') + '\n';
+      nachricht += '  FIN:          ' + (fin || '—') + '\n';
+      nachricht += '  Kennzeichen:  ' + (kennzeichen || '—') + '\n';
+      nachricht += '  Halterwechsel:' + (halterwechsel || '—') + '\n';
+      nachricht += '  ZB I Nummer:  ' + (zb1nr || '—') + '\n';
+      nachricht += '  ZB I Code:    ' + (zb1code || '—') + '\n';
+      nachricht += '  ZB II Nummer: ' + (zb2nr || '—') + '\n';
+      nachricht += '  ZB II PIN:    ' + (zb2pin || '—') + '\n\n';
+      nachricht += '🛡️ ZULEX SCHRITT 2 – HALTER/VERSICHERUNG:\n';
+      nachricht += '  eVB-Nummer:   ' + (evb || '—') + '\n\n';
+      nachricht += '🏦 BANKVERBINDUNG (fuer Kfz-Steuer):\n';
+      nachricht += '  Kontoinhaber: ' + (kontoinhaber || '—') + '\n';
+      nachricht += '  IBAN:         ' + (iban || '—') + '\n\n';
+      nachricht += '💬 ANMERKUNGEN: ' + (anmerkungen || '—') + '\n\n';
+      nachricht += '══════════════════════════════════\n';
+      nachricht += '🔗 Zulex oeffnen: https://app.zulex.de/registrations/new\n';
+
+      fetch('https://api.emailjs.com/api/v1.0/email/send', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          service_id: 'rathausshop_webde',
+          template_id: 'template_q0y1q8m',
+          user_id: 'U5mSqYiBPF3ZJ1E6B',
+          template_params: {
+            subject: 'Neuer KFZ-Auftrag: ' + vorgang + ' – ' + vorname + ' ' + nachname,
+            message: nachricht,
+            name: vorname + ' ' + nachname,
+            email: email2
+          }
+        })
+      }).catch(function(e) { console.log('EmailJS Fehler:', e); });
+
       document.getElementById('form-success').style.display = 'block';
       document.getElementById('form-error').style.display = 'none';
       form.reset();

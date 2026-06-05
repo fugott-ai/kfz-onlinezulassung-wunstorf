@@ -703,9 +703,7 @@
         Sie muessen <strong>nicht alle Felder selbst ausfüllen</strong> — laden Sie einfach Fotos oder PDFs Ihrer Dokumente hoch (Fahrzeugschein, Fahrzeugbrief usw.) und wir tragen alle Daten wie FIN, Nummern und Codes fuer Sie ein. Nur Ihre persoenlichen Daten und die E-Mail-Adresse benoetigen wir von Ihnen.
       </div>
 
-      <form name="kfz-auftrag" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data">
-        <input type="hidden" name="form-name" value="kfz-auftrag">
-        <p style="display:none;"><input name="bot-field"></p>
+      <form id="kfz-form" enctype="multipart/form-data">
 
         <!-- VORGANGSART (immer sichtbar) -->
         <div style="margin:0 0 1.5rem; background:var(--gold); border-radius:12px; padding:1.2rem 1.5rem;">
@@ -871,7 +869,7 @@
 
           <div class="price-badge">💳 Servicegebuehr:&nbsp;<span class="price">ab 39,90 &euro;</span>&nbsp;zzgl. Behoerdengebuehren</div>
           <div class="form-footer">
-            <button type="submit" class="submit-btn">
+            <button type="button" class="submit-btn" id="submit-btn" onclick="formularAbsenden()">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               Auftrag kostenpflichtig anfragen
             </button>
@@ -1211,6 +1209,53 @@ function vorgangAktualisieren(v) {
     </div>
   </div>
 </div>
+
+
+<script>
+async function formularAbsenden() {
+  var btn = document.getElementById('submit-btn');
+
+  // Pflichtfelder prüfen
+  var required = ['vorname', 'nachname', 'geburtsort', 'geburtsdatum', 'email', 'telefon', 'adresse', 'vorgang'];
+  for (var i = 0; i < required.length; i++) {
+    var el = document.querySelector('[name="' + required[i] + '"]');
+    if (el && !el.value.trim()) {
+      alert('Bitte füllen Sie alle Pflichtfelder (*) aus.');
+      el.focus();
+      return;
+    }
+  }
+
+  btn.disabled = true;
+  btn.innerHTML = '⏳ Wird gesendet …';
+
+  // Formulardaten sammeln
+  var form = document.getElementById('kfz-form');
+  var formData = new FormData(form);
+
+  try {
+    var response = await fetch('https://formspree.io/f/xwvjpgev', {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      document.getElementById('form-success').style.display = 'block';
+      document.getElementById('form-error').style.display = 'none';
+      form.reset();
+    } else {
+      throw new Error('Fehler');
+    }
+  } catch(e) {
+    document.getElementById('form-error').style.display = 'block';
+    document.getElementById('form-success').style.display = 'none';
+  }
+
+  btn.disabled = false;
+  btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg> Auftrag kostenpflichtig anfragen';
+}
+</script>
 
 <!-- Smooth Scroll Fix -->
 <script>

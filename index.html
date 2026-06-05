@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0065)file:///C:/Users/User/Downloads/rathausshop-wunstorf-kfz2_19.html -->
+<!-- saved from url=(0065)file:///C:/Users/User/Downloads/rathausshop-wunstorf-kfz2_20.html -->
 <html lang="de"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -439,12 +439,12 @@
     </div>
   </div>
   <nav>
-    <a href="file:///C:/Users/User/Downloads/rathausshop-wunstorf-kfz2_19.html#leistungen">Leistungen</a>
-    <a href="file:///C:/Users/User/Downloads/rathausshop-wunstorf-kfz2_19.html#ablauf">Ablauf</a>
-    <a href="file:///C:/Users/User/Downloads/rathausshop-wunstorf-kfz2_19.html#unterlagen">Unterlagen</a>
-    <a href="file:///C:/Users/User/Downloads/rathausshop-wunstorf-kfz2_19.html#faq">FAQ</a>
-    <a href="file:///C:/Users/User/Downloads/rathausshop-wunstorf-kfz2_19.html#hilfe" class="btn-nav">Wo finde ich was?</a>
-    <a href="file:///C:/Users/User/Downloads/rathausshop-wunstorf-kfz2_19.html#bestellen" class="btn-nav">Jetzt beauftragen →</a>
+    <a href="file:///C:/Users/User/Downloads/rathausshop-wunstorf-kfz2_20.html#leistungen">Leistungen</a>
+    <a href="file:///C:/Users/User/Downloads/rathausshop-wunstorf-kfz2_20.html#ablauf">Ablauf</a>
+    <a href="file:///C:/Users/User/Downloads/rathausshop-wunstorf-kfz2_20.html#unterlagen">Unterlagen</a>
+    <a href="file:///C:/Users/User/Downloads/rathausshop-wunstorf-kfz2_20.html#faq">FAQ</a>
+    <a href="file:///C:/Users/User/Downloads/rathausshop-wunstorf-kfz2_20.html#hilfe" class="btn-nav">Wo finde ich was?</a>
+    <a href="file:///C:/Users/User/Downloads/rathausshop-wunstorf-kfz2_20.html#bestellen" class="btn-nav">Jetzt beauftragen →</a>
   </nav>
 </header>
 
@@ -456,11 +456,11 @@
     <h1>KFZ-Zulassung —<br><em>einfach online erledigt</em></h1>
     <p class="hero-desc">Ihr Fahrzeug anmelden, umschreiben oder abmelden — bequem von zuhause, deutschlandweit und ohne Online-Ausweisfunktion. Wir erledigen das für Sie.</p>
     <div class="hero-ctas">
-      <a href="file:///C:/Users/User/Downloads/rathausshop-wunstorf-kfz2_19.html#bestellen" class="btn-primary">
+      <a href="file:///C:/Users/User/Downloads/rathausshop-wunstorf-kfz2_20.html#bestellen" class="btn-primary">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
         Jetzt beauftragen
       </a>
-      <a href="file:///C:/Users/User/Downloads/rathausshop-wunstorf-kfz2_19.html#ablauf" class="btn-secondary">
+      <a href="file:///C:/Users/User/Downloads/rathausshop-wunstorf-kfz2_20.html#ablauf" class="btn-secondary">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4l3 3"></path></svg>
         Wie läuft das ab?
       </a>
@@ -920,8 +920,8 @@ function vorgangAktualisieren(v) {
   document.getElementById('inp-zb2-nr').required    = false;
   document.getElementById('inp-zb2-pin').required   = false;
   document.getElementById('inp-evb').required       = false;
-  document.getElementById('file-zb1').required      = false;
-  document.getElementById('file-zb2').required      = false;
+  // file optional
+  // file optional
   document.getElementById('inp-kennzeichen-code').required = false;
   document.getElementById('inp-kz-vorne').required = false;
   document.getElementById('inp-kz-hinten').required = false;
@@ -966,8 +966,8 @@ function vorgangAktualisieren(v) {
     evb.style.display  = 'block';
     hw.style.display   = 'block';
     // evb optional
-    document.getElementById('file-zb1').required      = true;
-    document.getElementById('file-zb2').required      = true;
+    // file optional
+    // file optional
     document.getElementById('block-bankdaten').style.display = 'block';
     // kontoinhaber optional
     // iban optional
@@ -979,15 +979,15 @@ function vorgangAktualisieren(v) {
     hw.style.display   = 'block';
     klabel.textContent = 'Gewuenschtes Kennzeichen';
     // evb optional
-    document.getElementById('file-zb1').required      = true;
-    document.getElementById('file-zb2').required      = true;
+    // file optional
+    // file optional
     document.getElementById('block-bankdaten').style.display = 'block';
     // kontoinhaber optional
     // iban optional
   }
   else if (v === 'Abmeldung') {
     zb1.style.display  = 'block';  uzb1.style.display = 'block';
-    document.getElementById('file-zb1').required      = true;
+    // file optional
     document.getElementById('block-kennzeichen-code').style.display = 'block';
     document.getElementById('inp-kennzeichen-code').required = true;
     document.getElementById('inp-kz-vorne').required = true;
@@ -998,7 +998,7 @@ function vorgangAktualisieren(v) {
   }
   else if (v === 'Adressaenderung') {
     zb1.style.display  = 'block';  uzb1.style.display = 'block';
-    document.getElementById('file-zb1').required      = true;
+    // file optional
     klabel.textContent = 'Bisheriges Kennzeichen';
     document.getElementById('anmerkungen-label').textContent = 'Anmerkungen';
     document.getElementById('anmerkungen-feld').placeholder = 'Besondere Hinweise oder Anmerkungen ...';
@@ -1049,7 +1049,7 @@ function vorgangAktualisieren(v) {
       <ul>
         <li><a href="tel:+4950319747016">📞 05031 / 9747016</a></li>
         <li><span>📍 Südstraße 5, 31515 Wunstorf</span></li>
-        <li><a href="file:///C:/Users/User/Downloads/rathausshop-wunstorf-kfz2_19.html#faq">FAQ &amp; Hilfe</a></li>
+        <li><a href="file:///C:/Users/User/Downloads/rathausshop-wunstorf-kfz2_20.html#faq">FAQ &amp; Hilfe</a></li>
       </ul>
     </div>
   </div>
